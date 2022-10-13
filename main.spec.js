@@ -69,3 +69,19 @@ test("Analyze array expecting errors", () => {
     arraymyFunctions.analyzeArray();
   }).toThrow(Error);
 });
+/* Vending machine */
+/* Using TDD create sofware for Machine for buying snacks. Function getChangeVendingMachine accepts two parameters: totalPrice and paidAmount. Array that is returned from function consists coins that machine must return (change value). You have to handle edge cases, implement error handling and write many tests to be sure that your machine works as expected.
+
+Let's say there are coins [1, 2, 5, 10, 20, 50, 100, 200].
+
+Example:
+
+totalPrice = 202
+paidAmount = 400
+difference = 198
+change coins = [100, 50, 20, 20, 5, 2, 1] */
+test("Vending machine", () => {
+  expect(myFunctions.getChange(300, 500)).toBe([200]);
+  expect(myFunctions.getChange(240, 1000)).toBe([500, 200, 50, 10]);
+  expect(myFunctions.getChange(35, 200)).toBe([100, 50, 10, 5]);
+});

@@ -56,10 +56,34 @@ function analyzeArray(arrayOfNumbers) {
     return object;
   }
 }
+function getChange(totalPrice, paidAmount) {
+  if (arguments.length != 2) {
+    throw new Error("You need to pass exactly 2 parameters");
+  } else if (typeof totalPrice != "number" || typeof paidAmount != "number") {
+    throw new Error("Both parameters need to be number");
+  } else if (totalPrice > paidAmount) {
+    throw new Error("You need more money");
+  } else {
+    var coins = [1, 2, 5, 10, 20, 50, 100, 200];
+    var difference = paidAmount - totalPrice;
+    var change = [];
+    while (difference != 0) {
+      for (let i = coins.length - 1; i == 0; i--) {
+        if (difference >= coins[i]) {
+          change.push(coins[i]);
+          difference -= coins[i];
+          break;
+        }
+      }
+    }
+    return change;
+  }
+}
 module.exports = {
   substractTwoNumbers,
   multiplyTwoNumbers,
   divideTwoNumbers,
   addNumbers,
   analyzeArray,
+  getChange,
 };
